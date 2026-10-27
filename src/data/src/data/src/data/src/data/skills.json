@@ -1,0 +1,7 @@
+[
+  { "category": "Data Analytics", "skills": [ {"name":"Excel","status":"Learning"}, {"name":"SQL","status":"Learning"} ] },
+  { "category": "Programming", "skills": [ {"name":"Python","status":"Learning"}, {"name":"pandas","status":"Learning"} ] },
+  { "category": "Visualization", "skills": [ {"name":"Power BI","status":"Learning"} ] },
+  { "category": "Data Engineering", "skills": [ {"name":"ETL/ELT","status":"Planned"} ] },
+  { "category": "Development Tools", "skills": [ {"name":"Git & GitHub","status":"Learning"} ] }
+]
