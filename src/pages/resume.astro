@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro'; import r from '../data/resume.json';
+---
+<Base title="Resume"><section><h1>Resume</h1><a class="btn primary" href={r.pdf}>Download PDF</a>
+<h2>Summary</h2><p>{r.summary}</p>
+<h2>Education and bootcamps</h2>{r.education.map(e=><p><strong>{e.title}</strong>, {e.org} <span class={`badge ${e.status}`}>{e.status}</span><br/><span class="meta">{e.dates}</span></p>)}
+<h2>Experience</h2>{r.experience.length ? r.experience.map(e=><p><strong>{e.title}</strong>, {e.org}<br/><span class="meta">{e.dates}</span></p>) : <div class="empty">Add work experience in src/data/resume.json when applicable.</div>}
+<h2>Certifications</h2>{r.certifications.length ? <ul>{r.certifications.map(c=><li>{c}</li>)}</ul> : <div class="empty">None yet.</div>}
+</section></Base>
