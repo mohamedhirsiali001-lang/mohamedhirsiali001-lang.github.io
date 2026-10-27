@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import profile from '../data/profile.json'; import social from '../data/social.json'; import skills from '../data/skills.json';
+const featured = (await getCollection('projects')).filter(p => p.data.featured && !p.data.draft);
+---
+<Base title="Home">
+  <div slot="hero" class="hero"><div class="wrap">
+    <h1>{profile.name}</h1><p class="lead">{profile.headline}</p><p>{profile.intro}</p>
+    <div class="btns"><a class="btn primary" href="/projects">View projects</a><a class="btn" href="/resume/resume.pdf">Download resume</a>
+      <a class="btn" href={social.github}>GitHub</a><a class="btn" href="/contact">Contact</a></div>
+  </div></div>
+  <section><h2>Featured projects</h2>
+    {featured.length ? <div class="grid">{featured.map(p=><a class="card" href={`/projects/${p.id}`} style="text-decoration:none;color:inherit"><span class="badge">{p.data.status}</span><h3>{p.data.title}</h3><p>{p.data.summary}</p></a>)}</div>
+    : <div class="empty">My first projects are in progress. Follow along on <a href={social.github}>GitHub</a>.</div>}</section>
+  <section><h2>Skills overview</h2>
+    {skills.map(g=><p><strong>{g.category}:</strong> {g.skills.map(s=><span class="badge">{s.name} ({s.status})</span>)}</p>)}
+    <a href="/skills">See skill details</a></section>
+  <section><h2>Elsewhere</h2><a href={social.github}>GitHub</a> and <a href={social.linkedin}>LinkedIn</a></section>
+</Base>
