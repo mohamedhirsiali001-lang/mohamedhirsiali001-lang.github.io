@@ -1,0 +1,6 @@
+---
+import Base from '../layouts/Base.astro'; import skills from '../data/skills.json';
+---
+<Base title="Skills"><section><h1>Technical skills</h1>
+<p class="meta"><b>Learning</b>: studying it now. <b>Practiced</b>: used in a project. <b>Demonstrated</b>: shown in a linked project (add an "evidence" link).</p>
+<div class="grid">{skills.map(g=><div class="card"><h3>{g.category}</h3>{g.skills.map(s=><div>{s.name} <span class={`badge ${s.status}`}>{s.status}</span>{s.evidence && <> <a href={s.evidence}>evidence</a></>}</div>)}</div>)}</div></section></Base>
