@@ -1,0 +1,5 @@
+---
+import Base from '../layouts/Base.astro'; import s from '../data/social.json';
+---
+<Base title="Contact"><section><h1>Contact</h1><ul>
+<li><a href={`mailto:${s.email}`}>{s.email}</a></li><li><a href={s.github}>GitHub</a></li><li><a href={s.linkedin}>LinkedIn</a></li><li><a href="/resume/resume.pdf">Resume (PDF)</a></li></ul></section></Base>
