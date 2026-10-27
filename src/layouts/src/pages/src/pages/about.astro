@@ -1,0 +1,5 @@
+---
+import Base from '../layouts/Base.astro'; import profile from '../data/profile.json'; import tl from '../data/timeline.json';
+---
+<Base title="About"><section><h1>About me</h1><p>{profile.about}</p>
+<h2>Learning timeline</h2><ol class="tl">{tl.map(t=><li><span class={`badge ${t.status}`}>{t.status}</span> <strong>{t.title}</strong> <span class="meta">{t.date}</span><br/>{t.note}</li>)}</ol></section></Base>
